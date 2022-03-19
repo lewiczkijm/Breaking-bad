@@ -27,10 +27,10 @@ export const Main = ()=>{
     // fetch data
     const getAllEpisodes = async ()=>{
         const episodes = await getEpisodes();
-        // if(!episodes) return // error processing
+        // if(!episodes) {return} // error processing
 
         // fix bug with incorrect update episodes
-        setEpisodes([])
+        // setEpisodes([])
         setEpisodes(episodes)
     }
 
@@ -57,9 +57,9 @@ export const Main = ()=>{
     return <div style={{marginLeft:10,marginRight:10}}>
         <SelectSeason values={seasons} value={season} onChange={setSeason} />
 
-        {presentEpisodes?.map(episode=><EpisodeItem
+        {presentEpisodes?.map((episode, i)=><EpisodeItem
             id={episode.episode_id}     title={episode.title}
-            airDate={episode.air_date}  key={episode.episode_id}
+            airDate={episode.air_date}  key={episode.episode_id || i + 100 }
         />)}
         {
             !episodes && <ErrorMessage><>
@@ -68,7 +68,10 @@ export const Main = ()=>{
             </></ErrorMessage>
         }
         <div style={{paddingBottom:8}}>
-            {filteredEpisodes && <Pages all={Math.ceil(filteredEpisodes.length / ITEMS_PER_PAGE)} active={page} onChange={setPage}/>}
+            {
+                filteredEpisodes && filteredEpisodes.length > ITEMS_PER_PAGE &&
+                <Pages all={Math.ceil(filteredEpisodes.length / ITEMS_PER_PAGE)} active={page} onChange={setPage}/>
+            }
         </div>
     </div>
 }
