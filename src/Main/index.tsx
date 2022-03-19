@@ -1,6 +1,7 @@
 import {useEffect, useMemo, useState} from "react";
 import {EpisodeItem} from "./EpisodeItem";
 import {generateArray} from "../helpers";
+import {Pages} from "./Pages";
 
 const ITEMS_PER_PAGE = 10
 
@@ -25,13 +26,14 @@ export const Main = ()=>{
         getAllEpisodes()
     },[])
 
+    const filteredEpisodes = useMemo(()=>episodes.filter(episode=>season?episode.season === season:true),[season,episodes])
     const presentEpisodes = useMemo(
-        ()=>episodes.filter(episode=>season?episode.season === season:true)
-            .slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
-        ,[episodes,page,season])
+        ()=>episodes.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
+        ,[filteredEpisodes,page])
 
     return <div style={{marginLeft:10,marginRight:10}}>
         <div className={"block"}></div>
         {presentEpisodes.map(episode=><EpisodeItem id={episode.episode_id} title={episode.title} airDate={episode.air_date} key={episode.episode_id}/>)}
+        <Pages all={Math.ceil(filteredEpisodes.length / ITEMS_PER_PAGE)} active={page} onChange={setPage}/>
     </div>
 }
