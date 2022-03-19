@@ -42,7 +42,7 @@ export const Pages = ({all, active, onChange}:PagesType)=>{
             {pages.map(page=><li key={page.page}>
                 <button
                     className={page.isActive?"pagination-link is-current":"pagination-link"}
-                    aria-label={`Goto page ${page.page}`}
+                    aria-label={page.isActive?`Page ${page.page}`:`Goto page ${page.page}`}
                     onClick={()=>setPageCallback(page.page)}
                 >{page.page}</button>
             </li>)}
