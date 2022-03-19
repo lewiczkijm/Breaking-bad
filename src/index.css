@@ -7,3 +7,23 @@
 .panel .panel-heading{
     margin: auto;
 }
+
+.skeleton{
+    color: #e2e2e2;
+    background-color: #e2e2e2;
+    animation: loading .5s infinite alternate;
+    border-radius: 4px;
+    user-select: none;
+    pointer-events: none;
+    cursor: wait;
+}
+@keyframes loading {
+    from {
+        color: #b8b3b3;
+        background-color:#b8b3b3;
+    }
+    to {
+        color: hsl(0, 5%, 78%);
+        background-color: hsl(0, 5%, 78%);
+    }
+}
