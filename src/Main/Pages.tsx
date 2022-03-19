@@ -35,7 +35,7 @@ export const Pages = ({all, active, onChange}:PagesType)=>{
 
     const setPageCallback = useCallback(setPage,[all,active,setPage])
 
-    return <nav className={"block pagination"}>
+    return <nav className={"pagination"}>
         <button onClick={()=>setPageCallback("prev")} disabled={active === 1} className="pagination-previous">Previous</button>
         <button onClick={()=>setPageCallback("next")} disabled={active === all} className="pagination-next">Next page</button>
         <ul className="pagination-list">
