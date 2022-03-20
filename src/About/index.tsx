@@ -1,5 +1,5 @@
 export const About = ()=>{
-    return <div style={{padding:20}}>
+    return <div className={"is-padding-20"}>
         <h1 className={"title"}>About</h1>
         <div className={"block"}>
             <p>

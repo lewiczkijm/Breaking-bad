@@ -33,7 +33,6 @@
     opacity: 100%;
 }
 
-
 .hidden{
     pointer-events: none;
     opacity: 0;
@@ -48,4 +47,8 @@
         color: hsl(0, 5%, 78%);
         background-color: hsl(0, 5%, 78%);
     }
+}
+
+.is-padding-20{
+    padding: 20px;
 }

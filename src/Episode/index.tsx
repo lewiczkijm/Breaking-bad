@@ -20,7 +20,7 @@ export const Episode = ()=>{
 
     return <div>
         {episode ?
-            <div style={{padding:20}}>
+            <div className={"is-padding-20"}>
 
                 <h1 className={"title is-1"}><Skeleton value={episode.title}/></h1>
 

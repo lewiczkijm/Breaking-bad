@@ -4,7 +4,7 @@ export type selectSeasonType = {
     onChange:(value:string)=>void
 }
 export const SelectSeason = ({values, onChange, value}:selectSeasonType)=>{
-    return <div className={"is-flex is-align-items-center"} style={{padding:20}}>
+    return <div className={"is-flex is-align-items-center is-padding-20"}>
         <label className="label" style={{paddingRight: 20}}>Select season</label>
         <div className="select is-small">
             <select value={value} onChange={(e)=>onChange(e.target.value)}>

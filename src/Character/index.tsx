@@ -23,7 +23,7 @@ export const Character = ()=>{
 
     return <div>
         {character?
-            <div style={{padding:20}} className={"is-flex"}>
+            <div className={"is-flex is-padding-20"}>
                 <div
                     className={"box"}
                     style={{width:340,maxHeight:500,overflowY:"hidden"}}
