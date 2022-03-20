@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "@mdi/react";
 import {mdiCloseOctagon} from "@mdi/js";
-import {episodeType} from "./api";
+import {characterType, episodeType} from "./api";
 
 export type skeletonType = {
     children?:JSX.Element,
@@ -47,4 +47,19 @@ export const emptyEpisode: episodeType = {
     title: "",
 
 }
+
+export const emptyCharacter:characterType = {
+    appearance:[],
+    better_call_saul_appearance:[],
+    birthday:"",
+    category:"",
+    char_id:0,
+    img:"",
+    name:"",
+    nickname:"",
+    occupation:[],
+    portrayed:"",
+    status:""
+}
+
 export const ITEMS_PER_PAGE = 10
