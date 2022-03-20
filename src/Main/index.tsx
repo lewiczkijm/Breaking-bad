@@ -8,7 +8,7 @@ import {episodeType, getEpisodes} from "../api";
 const ITEMS_PER_PAGE = 10
 
 // added as stub, while episode not loaded
-const emptyEpisode:episodeType = {
+export const emptyEpisode:episodeType = {
     air_date:"",
     characters:[],
     episode:"",
@@ -20,7 +20,7 @@ const emptyEpisode:episodeType = {
 }
 
 export const Main = ()=>{
-    const [episodes,setEpisodes] = useState<Array<episodeType> | undefined>(()=>generateArray(emptyEpisode,10))
+    const [episodes,setEpisodes] = useState<Array<episodeType> | undefined>(()=>generateArray(emptyEpisode,ITEMS_PER_PAGE))
     const [page, setPage] = useState(1)
     const [season, setSeason] = useState<string>("")
 
