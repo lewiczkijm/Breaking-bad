@@ -1,12 +1,12 @@
 import {Link, useLocation} from "react-router-dom";
-import { mdiArrowLeftThick } from '@mdi/js';
+import { mdiHome } from '@mdi/js'
 import {Icon} from '@mdi/react'
 
 export const Header = ()=> {
     let location = useLocation();
     return (<header style={{minHeight:84}} className={"panel-heading navbar heading columns"}>
         {location.pathname !== "/" && <Link className={"column is-1 is-align-self-center"} to={"/"}>
-            <Icon style={{color: "white"}} className={"icon"} path={mdiArrowLeftThick}/>
+            <Icon style={{color: "white"}} className={"icon"} path={mdiHome}/>
         </Link>}
         <h1 className={"column tile"}>Series</h1>
         <div className={"column is-1"}>

@@ -13,10 +13,6 @@ export const Main = ()=>{
     // fetch data
     const getAllEpisodes = async ()=>{
         const episodes = await getEpisodes();
-        // if(!episodes) {return} // error processing
-
-        // fix bug with incorrect update episodes
-        // setEpisodes([])
         setEpisodes(episodes)
     }
 

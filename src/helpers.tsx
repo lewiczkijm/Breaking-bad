@@ -1,17 +1,38 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Icon from "@mdi/react";
 import {mdiCloseOctagon} from "@mdi/js";
 import {characterType, episodeType} from "./api";
 
 export type skeletonType = {
-    children?:JSX.Element,
-    style?:React.CSSProperties
-    className?:string
+    value?:string | JSX.Element,
+    style?:React.CSSProperties,
+    className?:string,
 }
-export const Skeleton = ({children,style}:skeletonType)=><span
-    style={style}
-    className={"skeleton"}
->{children}</span>
+export const Skeleton = ({value,style}:skeletonType)=> {
+
+    const [showValue,setShowValue] = useState(false)
+    const [showStub,setShowStub] = useState(true)
+
+    useEffect(()=>{
+        if(value){
+            setShowStub(false)
+            setTimeout(()=>setShowValue(true),900)
+            return
+        }
+        setShowStub(true)
+        setTimeout(()=>setShowValue(false),900)
+    },[value])
+
+    return <span style={style} className={"skeleton-wrapper"}>
+        <span
+            style={style}
+            className={showStub?"skeleton visible":"skeleton"}
+        >
+            Fake hidden name
+        </span>
+        {showValue?value : <span className={"hidden"}>hidden</span>}
+    </span>
+}
 
 export const ErrorMessage = ({children}:{children:JSX.Element})=><div className="notification is-danger is-flex is-align-items-center">
     <Icon
