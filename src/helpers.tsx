@@ -4,7 +4,7 @@ import {mdiCloseOctagon} from "@mdi/js";
 import {characterType, episodeType} from "./api";
 
 export type skeletonType = {
-    value?:string | JSX.Element,
+    value?:string | JSX.Element | undefined,
     style?:React.CSSProperties,
     className?:string,
 }
@@ -16,11 +16,11 @@ export const Skeleton = ({value,style}:skeletonType)=> {
     useEffect(()=>{
         if(value){
             setShowStub(false)
-            setTimeout(()=>setShowValue(true),900)
+            setTimeout(()=>setShowValue(true),100)
             return
         }
         setShowStub(true)
-        setTimeout(()=>setShowValue(false),900)
+        setTimeout(()=>setShowValue(false),100)
     },[value])
 
     return <span style={style} className={"skeleton-wrapper"}>
@@ -30,7 +30,7 @@ export const Skeleton = ({value,style}:skeletonType)=> {
         >
             Fake hidden name
         </span>
-        {showValue?value : <span className={"hidden"}>hidden</span>}
+        {!showStub?<span className={showValue?"skeleton-element visible":"skeleton-element"}>{value}</span> : <span className={"hidden"}>hidden</span>}
     </span>
 }
 

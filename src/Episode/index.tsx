@@ -22,20 +22,17 @@ export const Episode = ()=>{
         {episode ?
             <div style={{padding:20}}>
 
-                <h1 className={"title is-1"}>{episode.title || <Skeleton><>Fake hidden name</></Skeleton>}</h1>
+                <h1 className={"title is-1"}><Skeleton value={episode.title}/></h1>
 
                 <p className={"subtitle is-5"} style={{padding:"16px 0px"}}>
-                    {!!episode.air_date?<>air date: {episode.air_date}</>:<Skeleton><>Fake hidden name</></Skeleton>}
+                    <Skeleton value={episode.air_date}/>
                 </p>
 
                 <h2 className="title is-2">Characters</h2>
 
                     {episode.characters.map(character=>
                         <div className={"panel-block"}>
-                            {character?
-                                <Link to={`/characters/${character}`}>{character}</Link>:
-                                <Skeleton><>Fake hidden name</></Skeleton>
-                            }
+                            <Skeleton value={character && <Link to={`/characters/${character}`}>{character}</Link>}/>
                         </div>
                     )}
 

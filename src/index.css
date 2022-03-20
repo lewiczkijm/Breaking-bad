@@ -11,7 +11,11 @@
 .skeleton-wrapper{
     display: inline-block;
 }
-
+.skeleton-element{
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    opacity:0;
+}
 .skeleton{
     position: absolute;
     color: #e2e2e2;
@@ -23,11 +27,12 @@
     cursor: wait;
     opacity: 0;
     transition-property: opacity;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
 }
-.skeleton.visible{
+.skeleton.visible, .skeleton-element.visible{
     opacity: 100%;
 }
+
 
 .hidden{
     pointer-events: none;
