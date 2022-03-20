@@ -2,6 +2,7 @@ import React from 'react';
 import {Link,Routes, Route,Outlet} from "react-router-dom";
 import {Header} from "./Header";
 import {Main} from "./Main";
+import {Episode} from "./Episode";
 
 function App() {
   return (
@@ -9,10 +10,9 @@ function App() {
         <Header/>
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path="/second" element={<>2</>}/>
+        <Route path="/episode/:id" element={<Episode/>}/>
       </Routes>
       <Outlet/>
-
     </div>
   );
 }

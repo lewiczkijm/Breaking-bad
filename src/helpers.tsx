@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "@mdi/react";
 import {mdiCloseOctagon} from "@mdi/js";
+import {episodeType} from "./api";
 
 export type skeletonType = {
     children?:JSX.Element,
@@ -34,3 +35,16 @@ export function generateArray<T>(val:T, count:number):T[]{
     }
     return arr
 }
+
+// added as stub, while episode not loaded
+export const emptyEpisode: episodeType = {
+    air_date: "",
+    characters: ["","","","",""],
+    episode: "",
+    episode_id: 0,
+    season: "",
+    series: "",
+    title: "",
+
+}
+export const ITEMS_PER_PAGE = 10

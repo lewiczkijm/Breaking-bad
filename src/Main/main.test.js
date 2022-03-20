@@ -1,8 +1,8 @@
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils";
 import React from "react";
-import {emptyEpisode, Main} from "./index";
-import {ErrorMessage, generateArray} from "../helpers";
+import {Main} from "./index";
+import {emptyEpisode, ErrorMessage, generateArray} from "../helpers";
 
 let container = null; let arrowBack;
 beforeEach(()=>{

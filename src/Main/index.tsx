@@ -1,23 +1,9 @@
 import {useEffect, useMemo, useState} from "react";
 import {EpisodeItem} from "./EpisodeItem";
-import {ErrorMessage, generateArray} from "../helpers";
+import {emptyEpisode, ErrorMessage, generateArray, ITEMS_PER_PAGE} from "../helpers";
 import {Pages} from "./Pages";
 import {SelectSeason} from "./SelectSeason";
 import {episodeType, getEpisodes} from "../api";
-
-const ITEMS_PER_PAGE = 10
-
-// added as stub, while episode not loaded
-export const emptyEpisode:episodeType = {
-    air_date:"",
-    characters:[],
-    episode:"",
-    episode_id:0,
-    season:"",
-    series:"",
-    title:"",
-
-}
 
 export const Main = ()=>{
     const [episodes,setEpisodes] = useState<Array<episodeType> | undefined>(()=>generateArray(emptyEpisode,ITEMS_PER_PAGE))

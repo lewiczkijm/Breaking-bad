@@ -4,7 +4,6 @@ import {Icon} from '@mdi/react'
 
 export const Header = ()=> {
     let location = useLocation();
-    console.log(location)
     return (<header style={{minHeight:84}} className={"panel-heading navbar heading columns"}>
         {location.pathname !== "/" && <Link className={"column is-1 is-align-self-center"} to={"/"}>
             <Icon style={{color: "white"}} className={"icon"} path={mdiArrowLeftThick}/>
