@@ -8,7 +8,7 @@ export const Header = ()=> {
         {location.pathname !== "/" && <Link className={"column is-1 is-align-self-center"} to={"/"}>
             <Icon style={{color: "white"}} className={"icon"} path={mdiHome}/>
         </Link>}
-        <h1 className={"column tile"}>Series</h1>
+        <h1 className={"column tile"}>Breaking Bad Series</h1>
         <div className={"column is-1"}>
             <Link className={" button is-info is-light is-small "} to={"/about"}>About</Link>
         </div>
