@@ -26,7 +26,7 @@ export type characterType = {
 export const getEpisodes = async ():Promise<Array<episodeType> | undefined> =>{
     let res = await fetch(`/episodes`).catch(()=>undefined)
     if(!res || !res.ok) return
-    return await res.json()
+    return res.json()
 }
 
 // get episode by id
